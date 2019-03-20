@@ -8,7 +8,7 @@ First, change to the root user:<br>
 	`su -`<br>
 
 Add the Debian LSCSoft repository to your system by adding the following to the file `/etc/apt/sources.list.d/lscsoft.list:`<br>
-	`deb http://software.ligo.org/lscsoft/debian stretch contrib`<br>
+	``deb http://software.ligo.org/lscsoft/debian stretch contrib``<br>
 	`deb-src http://software.ligo.org/lscsoft/debian stretch contrib`<br>
 
 Force install the LSCSoft keyring:<br>
