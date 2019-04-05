@@ -13,7 +13,7 @@ You can find all of these scripts in the zipped file `irig_event_checking_sripts
 tar -zxvf irig_event_checking_sripts.tar.gz
 ```
 
-The python scripts require a number of packages, many of which are likely already installed such as `gwpy`. Notably, the conversion script also requires gpstime. This package can be installed on the following operating systems in the following ways: 
+The python scripts require a number of packages, many of which are likely already installed such as `gwpy`. Notably, the conversion script also requires `gpstime`. This package can be installed on the following operating systems in the following ways: 
 1. Mac OS using MacPorts
     - run `sudo port install py36-gpstime`
 2. Debian 
