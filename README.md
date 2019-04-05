@@ -3,10 +3,15 @@
 
 ## Dependencies 
 
-The `irig_check.sh` script calls on three other scripts, all attached. These are:
+The `irig_check.sh` script calls on three other scripts. These are:
 1. `get_vals`
 2. `geco_irig_decode.py`
 3. `convert_to_gps.py`
+
+You can find all of these scripts in the zipped file `irig_event_checking_sripts.tar.gz`. To unzip this file, run: 
+```
+tar -zxvf irig_event_checking_sripts.tar.gz
+```
 
 The python scripts require a number of packages, many of which are likely already installed such as `gwpy`. Notably, the conversion script also requires gpstime. This package can be installed on the following operating systems in the following ways: 
 1. Mac OS using MacPorts
