@@ -18,9 +18,30 @@ The python scripts require a number of packages, many of which are likely alread
 ```
 mkdir -p ~/dev
 cd ~/dev
-
+git clone https://git.ligo.org/cds/gpstime.git
+cd gpstime
+pip install --user --editable .
 ```
+Once you have all the neccessary scripts and packages you are ready to run the checks.
 
 ## Running the scripts 
 
+To run the event IRIG-B checking scripts simply run the following in terminal:
+```
+export EVNTTIME=1237606078 #change this to reflect the relevant time
+./irig_check.sh
+```
   
+This script checks the IRIG-B Timestamp for +/- 10 seconds around the event time for the following four channels:
+```
+H1:CAL-PCALX_IRIGB_DQ		
+H1:CAL-PCALY_IRIGB_DQ
+L1:CAL-PCALX_IRIGB_DQ		
+L1:CAL-PCALY_IRIGB_DQ
+```
+
+The output will print directly to terminal. If you would like to save the output, simply run the script as follows:
+```
+./irig_check.sh > output.txt #for your choice of filename
+``` 
+
