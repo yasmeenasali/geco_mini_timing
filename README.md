@@ -15,8 +15,8 @@ The python scripts require a number of packages, many of which are likely alread
     - gpstime can be installed with the cds-workstation umbrella package. Installation directions can be found [here](https://git.ligo.org/cds-packaging/docs/wikis/home)
 3. LIGO Computing Cluster
     - if running on the cluster, you can install the package for your user using the following commands: 
-    `mkdir -p ~/dev`
-    `cd ~/dev`
+	mkdir -p ~/dev
+	cd ~/dev
 
 
 ## Running the scripts 
