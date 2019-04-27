@@ -1,16 +1,29 @@
-# Checking the IRIG-B Timestamp for an event
+# Timing Checks for IRIG-B Timestamp and DuoTone Delays
 *(c) Yasmeen Asali, April 2019*
 
-## Dependencies 
+## Plotting DuoTone delay histograms
+
+Plotting histograms of the DuoTone delay times requires the `duotone_delay.py` script. To run the checks simply execute the following in terminal:
+```
+. ~/detchar/opt/gwpysoft/bin/activate #run this if executing commands in the cluster to load a working version of gwpy
+./duotone_delay.py -s -i "H1" -t 1237606078
+deactivate #only if you activate the environment
+```
+
+You can change `"H1"` to `"L1"` to generate the plots for LHO and LLO respectively. The plots are created in the working directory. You can also run `./duotone_delay.py -h` to see more information.  
+
+## Checking the IRIG-B Timestamp for an event
+
+### Dependencies 
 
 The `irig_check.sh` script calls on three other scripts. These are:
 1. `get_vals`
 2. `geco_irig_decode.py`
 3. `convert_to_gps.py`
 
-You can find all of these scripts in the zipped file `irig_event_checking_sripts.tar.gz`. To unzip this file, run: 
+You can find all of these scripts in the zipped file `irig_event_checking_scripts.tar.gz`. To unzip this file, run: 
 ```
-tar -zxvf irig_event_checking_sripts.tar.gz
+tar -zxvf irig_event_checking_scripts.tar.gz
 ```
 
 The python scripts require a number of packages, many of which are likely already installed such as `gwpy`. Notably, the conversion script also requires `gpstime`. This package can be installed on the following operating systems in the following ways: 
@@ -29,11 +42,12 @@ pip install --user --editable .
 ```
 Once you have all the neccessary scripts and packages you are ready to run the checks.
 
-## Running the scripts 
+### Running the scripts 
 
 To run the event IRIG-B checking scripts simply run the following in terminal:
 ```
-export EVNTTIME=1237606078 #change this to reflect the relevant time
+kinit
+export EVNTTIME=1237606078
 ./irig_check.sh
 ```
   
