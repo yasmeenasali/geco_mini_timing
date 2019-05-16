@@ -1,8 +1,6 @@
 # Timing Checks for IRIG-B Timestamp and DuoTone Delays
 *(c) Yasmeen Asali, April 2019*
 
-test
-
 ## Plotting DuoTone delay histograms
 
 Plotting histograms of the DuoTone delay times requires the `duotone_delay.py` script. To run the checks simply execute the following in terminal:
