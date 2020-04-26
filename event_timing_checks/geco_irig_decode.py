@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # (c) Stefan Countryman, 2016-2017
 
-# NOTE: this is an old version of this script. DO NOT use new version for timing checks
-
 import sys
 import datetime
 from textwrap import fill
