@@ -15,11 +15,7 @@ _RED = '\033[91m'
 _CLEAR = '\033[0m'
 
 parser = argparse.ArgumentParser(description=DESC)
-parser.add_argument("-M", "--multipleEvents", action='store_true',
-                    help=('Run timing checks for a list of superevents'))
 parser.add_argument("-l", "--list", nargs='+', help=('List of Superevent IDs'))
-parser.add_argument("-E", "--singleEvent", action='store_true',
-                    help=('Run timing checks for a single event'))
 parser.add_argument('-s', '--superevent', type=str, help=('Superevent ID'))
 parser.add_argument('-t', '--gpstime', help=('GPS time of the event with nanoseconds'))
 args = parser.parse_args()
@@ -50,14 +46,18 @@ def single_event_check(superevent, time):
     print(_RED +  "All Timing Checks for {} Finished".format(superevent) + _CLEAR)
 
 if __name__ == '__main__':
-    if args.multipleEvents:
+    if args.list is not None:
         for superevent in args.list:
             time = get_time(superevent)
             single_event_check(superevent, time)
-    elif args.singleEvent:
-        single_event_check(args.superevent, args.gpstime)
+    elif args.superevent is not None:
+        if args.gpstime is not None:
+            single_event_check(args.superevent, args.gpstime)
+        else:
+            time = get_time(superevent)
+            single_event_check(args.superevent, time)
     else:
-        print('ERROR: must select either multiple or single superevent')
+        print('ERROR: must give either multiple or single superevent ID')
         exit(1)
 
     
