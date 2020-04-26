@@ -7,6 +7,10 @@
 # - must have gpstime package installed
 # - must "export EVNTTIME=" before running
 
+SUPEREVENT="$1"
+
+EVNTTIME_FULL="$2"
+EVNTTIME=${EVNTTIME_FULL:0:-7}
 GPSTIME=$(( $EVNTTIME - 10 ))
 
 #Check each of the four IRIG-B Channels
@@ -25,6 +29,8 @@ input_gps=$(while [ $GPSTIME -lt $max ]; do echo $GPSTIME; GPSTIME=$(( $GPSTIME 
 label=$'\n\n\n\n\n\n\n\n\n\nEvent Time'
 
 #Print out values
+echo "Timing Checks for "$SUPEREVENT" at GPS time "$EVNTTIME_FULL
+echo
 #HX
 echo "Checking IRIG-B Timestamp for H1:CAL-PCALX_IRIGB_DQ"
 paste <(printf %-10s "GPSTIME") <(printf %-10s "IRIG-B Timestamp")
