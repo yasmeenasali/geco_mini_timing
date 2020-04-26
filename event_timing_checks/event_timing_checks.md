@@ -1,7 +1,49 @@
 # Timing Checks for IRIG-B Timestamp and DuoTone Delays
 *(c) Yasmeen Asali, April 2019*
 
-## Plotting DuoTone delay histograms
+The scripts found in this repository can be used to run timing checks on events. 
+
+## Run Timing Checks
+
+The easiest way to run timing checks for an event is by using the `timing_checks.py` script. 
+
+### Dependencies 
+
+The `timing_checks.py` script calls on multiple other scripts. These are:
+1. `irig_check.sh`
+2. `get_vals`
+3. `geco_irig_decode.py`
+4. `convert_to_gps.py`
+5. `duotone_delay_O3B_version.py`
+
+You will also need a number of packages. All the neccessary packages are included in the `ligo-py36` virtual environment. 
+
+### Running the script
+
+To run full timing checks for a single event simply run the following in terminal:
+```
+kinit 
+ligo-proxy-init -k
+./timing_checks.py -s SUPEREVENT_ID
+```
+
+If you would like to manually provide the time call the script with:
+```
+./timing_checks.py -s SUPEREVENT_ID -t GPSTIME
+```
+
+To run timing checks for multiple superevents, you can provide a list of superevent IDs as the arguement:
+```
+./timing_checks.py -l SUPEREVENT_ID_1 SUPEREVENT_ID_1
+```
+Note: the superevent IDs should be space delimited 
+
+For more help run:
+```
+./timing_checks.py -h
+```
+
+## Manually Plotting DuoTone Delay Histograms
 
 Plotting histograms of the DuoTone delay times requires the `duotone_delay.py` script. To run the checks simply execute the following in terminal:
 ```
@@ -12,7 +54,7 @@ deactivate #only if you activate the environment
 
 You can change `"H1"` to `"L1"` to generate the plots for LHO and LLO respectively. The plots are created in the working directory. You can also run `./duotone_delay.py -h` to see more information.  
 
-## Checking the IRIG-B Timestamp for an event
+## Manually Checking the IRIG-B Timestamp for an event
 
 ### Dependencies 
 
@@ -42,7 +84,7 @@ pip install --user --editable .
 ```
 Once you have all the neccessary scripts and packages you are ready to run the checks.
 
-### Running the scripts 
+### Running the script 
 
 To run the event IRIG-B checking scripts simply run the following in terminal:
 ```
