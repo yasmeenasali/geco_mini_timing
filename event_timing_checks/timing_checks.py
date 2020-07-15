@@ -1,4 +1,4 @@
-#!/home/yasmeen.asali/miniconda3/envs/ligo-py36/bin/python3.6
+#!/usr/bin/env python
 from ligo.gracedb.rest import GraceDb, HTTPError
 import argparse
 import subprocess
@@ -27,7 +27,7 @@ def get_time(superevent):
     time = float(data['t_0'])
     return time
 
-def irig_check(superevemt, time):
+def irig_check(superevent, time):
     irig_file = '{0}_irig_check.txt'.format(superevent)
     irig_call='./irig_check.sh {0} {1} > {2}'.format(superevent, time, irig_file)
     subprocess.call([irig_call], shell=True)
@@ -54,7 +54,7 @@ if __name__ == '__main__':
         if args.gpstime is not None:
             single_event_check(args.superevent, args.gpstime)
         else:
-            time = get_time(superevent)
+            time = get_time(args.superevent)
             single_event_check(args.superevent, time)
     else:
         print('ERROR: must give either multiple or single superevent ID')
